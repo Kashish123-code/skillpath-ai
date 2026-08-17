@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillPath AI</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(99, 102, 241, 0.28),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 90% 80%,
+                    rgba(168, 85, 247, 0.28),
+                    transparent 30%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #0f172a,
+                    #1e1b4b
+                );
+
+            color: white;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 40px 20px;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           MAIN CONTAINER
+        ========================== */
+
+        .container {
+
+            width: 100%;
+
+            max-width: 950px;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        .header {
+
+            text-align: center;
+
+            margin-bottom: 35px;
+
+            animation: fadeDown 0.8s ease;
+        }
+
+
+        .badge {
+
+            display: inline-block;
+
+            padding: 9px 18px;
+
+            border-radius: 30px;
+
+            background:
+                rgba(255,255,255,0.10);
+
+            border:
+                1px solid rgba(255,255,255,0.20);
+
+            font-size: 13px;
+
+            margin-bottom: 16px;
+
+            backdrop-filter: blur(10px);
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.15);
+        }
+
+
+        .header h1 {
+
+            font-size: 50px;
+
+            margin-bottom: 12px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ffffff,
+                    #a5b4fc,
+                    #c084fc
+                );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+            letter-spacing: -1px;
+        }
+
+
+        .header p {
+
+            color: #cbd5e1;
+
+            font-size: 17px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           MAIN CARD
+        ========================== */
+
+        .card {
+
+            background:
+                rgba(255,255,255,0.08);
+
+            border:
+                1px solid rgba(255,255,255,0.15);
+
+            border-radius: 26px;
+
+            padding: 35px;
+
+            backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 25px 60px rgba(0,0,0,0.35);
+
+            animation: fadeUp 0.8s ease;
+        }
+
+
+        /* =========================
+           FORM
+        ========================== */
+
+        .form-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 25px;
+        }
+
+
+        .field label {
+
+            display: block;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            margin-bottom: 10px;
+
+            color: #e2e8f0;
+        }
+
+
+        select {
+
+            width: 100%;
+
+            padding: 16px;
+
+            border-radius: 13px;
+
+            border:
+                1px solid rgba(255,255,255,0.20);
+
+            background:
+                rgba(15,23,42,0.85);
+
+            color: white;
+
+            font-size: 16px;
+
+            outline: none;
+
+            transition: 0.3s;
+
+            cursor: pointer;
+        }
+
+
+        select:hover,
+        select:focus {
+
+            border-color: #818cf8;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(129,140,248,0.15);
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================== */
+
+        button {
+
+            width: 100%;
+
+            margin-top: 30px;
+
+            padding: 17px;
+
+            border: none;
+
+            border-radius: 13px;
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #6366f1,
+                    #8b5cf6
+                );
+
+            box-shadow:
+                0 10px 30px
+                rgba(99,102,241,0.35);
+
+            transition: 0.3s;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        button::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: -100%;
+
+            width: 100%;
+
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,0.20),
+                    transparent
+                );
+
+            transition: 0.5s;
+        }
+
+
+        button:hover::before {
+
+            left: 100%;
+        }
+
+
+        button:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 15px 40px
+                rgba(139,92,246,0.50);
+        }
+
+
+        button:active {
+
+            transform:
+                scale(0.98);
+        }
+
+
+        /* =========================
+           RESULT CONTAINER
+        ========================== */
+
+        .result {
+
+            margin-top: 35px;
+
+            min-height: 150px;
+
+            padding: 27px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(15,23,42,0.60);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.10);
+
+            transition: 0.4s;
+        }
+
+
+        .result-title {
+
+            color: #94a3b8;
+
+            font-size: 13px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.2px;
+
+            margin-bottom: 24px;
+
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           LEARNING JOURNEY
+        ========================== */
+
+        .career-path {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 6px;
+
+            padding:
+                5px 0 20px;
+        }
+
+
+        .path-item {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+        }
+
+
+        .step {
+
+            min-width: 280px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 15px 20px;
+
+            border-radius: 16px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #4f46e5,
+                    #7c3aed
+                );
+
+            border:
+                1px solid
+                rgba(255,255,255,0.22);
+
+            box-shadow:
+                0 10px 30px
+                rgba(79,70,229,0.25);
+
+            opacity: 0;
+
+            transform:
+                translateY(25px)
+                scale(0.90);
+
+            animation:
+                nodeIn 0.6s forwards;
+
+            transition: 0.3s;
+        }
+
+
+        .step:hover {
+
+            transform:
+                translateY(-5px)
+                scale(1.04);
+
+            box-shadow:
+                0 18px 40px
+                rgba(139,92,246,0.50);
+        }
+
+
+        .step-icon {
+
+            width: 46px;
+
+            height: 46px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 13px;
+
+            background:
+                rgba(255,255,255,0.15);
+
+            font-size: 23px;
+
+            flex-shrink: 0;
+        }
+
+
+        .step-name {
+
+            font-size: 16px;
+
+            font-weight: 700;
+        }
+
+
+        .step-number {
+
+            margin-top: 4px;
+
+            font-size: 11px;
+
+            color: #cbd5e1;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.5px;
+        }
+
+
+        .path-arrow {
+
+            font-size: 28px;
+
+            color: #a5b4fc;
+
+            opacity: 0;
+
+            animation:
+                arrowIn 0.5s forwards;
+
+            text-shadow:
+                0 0 15px
+                rgba(165,180,252,0.8);
+        }
+
+
+        /* =========================
+           PATH STATISTICS
+        ========================== */
+
+        .path-summary {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+
+            margin-top: 15px;
+        }
+
+
+        .stat {
+
+            padding: 16px 10px;
+
+            text-align: center;
+
+            border-radius: 14px;
+
+            background:
+                rgba(255,255,255,0.05);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            transition: 0.3s;
+        }
+
+
+        .stat:hover {
+
+            background:
+                rgba(255,255,255,0.09);
+
+            transform:
+                translateY(-3px);
+        }
+
+
+        .stat strong {
+
+            display: block;
+
+            font-size: 23px;
+
+            color: #c4b5fd;
+        }
+
+
+        .stat span {
+
+            display: block;
+
+            margin-top: 5px;
+
+            font-size: 11px;
+
+            color: #94a3b8;
+        }
+
+
+        /* =========================
+           WHY THIS PATH
+        ========================== */
+
+        .why-path {
+
+            margin-top: 25px;
+
+            padding: 22px;
+
+            border-radius: 17px;
+
+            background:
+                rgba(255,255,255,0.04);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            animation:
+                fadeUp 0.7s ease;
+        }
+
+
+        .why-title {
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            margin-bottom: 18px;
+
+            color: #e2e8f0;
+        }
+
+
+        .reason {
+
+            display: flex;
+
+            gap: 14px;
+
+            padding: 14px 0;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.06);
+        }
+
+
+        .reason:last-child {
+
+            border-bottom: none;
+        }
+
+
+        .reason-icon {
+
+            width: 38px;
+
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 10px;
+
+            background:
+                rgba(99,102,241,0.15);
+
+            font-size: 19px;
+
+            flex-shrink: 0;
+        }
+
+
+        .reason-text strong {
+
+            display: block;
+
+            color: white;
+
+            margin-bottom: 5px;
+
+            font-size: 14px;
+        }
+
+
+        .reason-text span {
+
+            color: #94a3b8;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =========================
+           PROGRESS
+        ========================== */
+
+        .success {
+
+            text-align: center;
+
+            color: #cbd5e1;
+
+            margin-top: 22px;
+
+            animation:
+                fadeUp 0.6s ease;
+        }
+
+
+        .progress {
+
+            height: 8px;
+
+            background:
+                rgba(255,255,255,0.10);
+
+            border-radius: 20px;
+
+            margin-top: 16px;
+
+            overflow: hidden;
+        }
+
+
+        .progress-bar {
+
+            height: 100%;
+
+            width: 0;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #6366f1,
+                    #c084fc
+                );
+
+            animation:
+                progress 1.5s ease forwards;
+        }
+
+
+        /* =========================
+           LOADING
+        ========================== */
+
+        .loading {
+
+            text-align: center;
+
+            color: #cbd5e1;
+
+            padding: 30px;
+        }
+
+
+        .spinner {
+
+            width: 38px;
+
+            height: 38px;
+
+            margin:
+                0 auto 15px;
+
+            border:
+                4px solid
+                rgba(255,255,255,0.15);
+
+            border-top-color:
+                #818cf8;
+
+            border-radius: 50%;
+
+            animation:
+                spin 0.8s linear infinite;
+        }
+
+
+        /* =========================
+           NO PATH
+        ========================== */
+
+        .no-path {
+
+            text-align: center;
+
+            padding: 30px 15px;
+
+            color: #cbd5e1;
+
+            animation:
+                fadeUp 0.6s ease;
+        }
+
+
+        .no-path-icon {
+
+            font-size: 40px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .no-path h3 {
+
+            margin-bottom: 8px;
+
+            color: white;
+        }
+
+
+        .no-path p {
+
+            color: #94a3b8;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        .footer {
+
+            text-align: center;
+
+            margin-top: 25px;
+
+            color: #64748b;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           ANIMATIONS
+        ========================== */
+
+        @keyframes fadeDown {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(-25px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes fadeUp {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(25px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes nodeIn {
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        @keyframes arrowIn {
+
+            to {
+
+                opacity: 1;
+            }
+        }
+
+
+        @keyframes spin {
+
+            to {
+
+                transform:
+                    rotate(360deg);
+            }
+        }
+
+
+        @keyframes progress {
+
+            to {
+
+                width: 85%;
+            }
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media(max-width: 700px) {
+
+            body {
+
+                padding:
+                    25px 12px;
+            }
+
+
+            .header h1 {
+
+                font-size: 36px;
+            }
+
+
+            .header p {
+
+                font-size: 15px;
+            }
+
+
+            .card {
+
+                padding: 22px;
+
+                border-radius: 20px;
+            }
+
+
+            .form-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .step {
+
+                min-width: 230px;
+            }
+
+
+            .path-summary {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .result {
+
+                padding: 18px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <div class="header">
+
+        <div class="badge">
+
+            ✨ AI-Powered Career Navigation
+
+        </div>
+
+
+        <h1>
+
+            SkillPath AI
+
+        </h1>
+
+
+        <p>
+
+            Discover the skills you need to reach your dream career.
+
+        </p>
+
+    </div>
+
+
+    <!-- =========================
+         MAIN CARD
+    ========================== -->
+
+    <div class="card">
+
+
+        <!-- FORM -->
+
+        <div class="form-grid">
+
+
+            <!-- STARTING SKILL -->
+
+            <div class="field">
+
+                <label for="skill">
+
+                    🧠 Starting Skill
+
+                </label>
+
+
+                <select id="skill">
+
+                    <option value="Python Basics">
+
+                        Python Basics
+
+                    </option>
+
+
+                    <option value="Data Structures">
+
+                        Data Structures
+
+                    </option>
+
+
+                    <option value="SQL">
+
+                        SQL
+
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- TARGET CAREER -->
+
+            <div class="field">
+
+                <label for="career">
+
+                    🎯 Target Career
+
+                </label>
+
+
+                <select id="career">
+
+                    <option value="Data Analyst">
+
+                        Data Analyst
+
+                    </option>
+
+
+                    <option value="ML Engineer">
+
+                        ML Engineer
+
+                    </option>
+
+
+                    <option value="Backend Developer">
+
+                        Backend Developer
+
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- BUTTON -->
+
+        <button
+            id="findButton"
+            onclick="findPath()"
+        >
+
+            🚀 Find My Learning Path
+
+        </button>
+
+
+        <!-- RESULT -->
+
+        <div
+            class="result"
+            id="result"
+        >
+
+            <div class="result-title">
+
+                Your Career Journey
+
+            </div>
+
+
+            <div
+                style="
+                    text-align:center;
+                    color:#94a3b8;
+                "
+            >
+
+                Select your starting skill and target career
+                to generate your personalized path.
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        Powered by Graph-Based Career Intelligence
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+
+/* =========================
+   FIND LEARNING PATH
+========================= */
+
+async function findPath() {
+
+
+    const skill =
+        document.getElementById("skill").value;
+
+
+    const career =
+        document.getElementById("career").value;
+
+
+    const resultDiv =
+        document.getElementById("result");
+
+
+    const button =
+        document.getElementById("findButton");
+
+
+    /* BUTTON LOADING STATE */
+
+    button.disabled = true;
+
+    button.innerHTML =
+        "🔎 Finding Your Best Path...";
+
+
+    /* LOADING UI */
+
+    resultDiv.innerHTML = `
+
+        <div class="loading">
+
+            <div class="spinner"></div>
+
+            Finding the best learning path...
+
+            <br>
+
+            <small
+                style="
+                    color:#64748b;
+                    display:block;
+                    margin-top:8px;
+                "
+            >
+
+                Analyzing the graph connections...
+
+            </small>
+
+        </div>
+
+    `;
+
+
+    try {
+
+
+        /* CALL FLASK BACKEND */
+
+        const response = await fetch(
+
+            `/path/${encodeURIComponent(skill)}/${encodeURIComponent(career)}`
+
+        );
+
+
+        const data =
+            await response.json();
+
+
+        /* =========================
+           PATH FOUND
+        ========================== */
+
+        if (data.path && data.path.length > 0) {
+
+
+            let html = `
+
+                <div class="result-title">
+
+                    🚀 Your Learning Journey
+
+                </div>
+
+
+                <div class="career-path">
+
+            `;
+
+
+            /* CREATE PATH NODES */
+
+            data.path.forEach(
+                (step, index) => {
+
+
+                    html += `
+
+                        <div class="path-item">
+
+                            <div
+                                class="step"
+                                style="
+                                    animation-delay:
+                                    ${index * 0.35}s;
+                                "
+                            >
+
+                                <div class="step-icon">
+
+                                    ${getIcon(step)}
+
+                                </div>
+
+
+                                <div>
+
+                                    <div class="step-name">
+
+                                        ${step}
+
+                                    </div>
+
+
+                                    <div class="step-number">
+
+                                        ${getStepLabel(
+                                            step,
+                                            index,
+                                            data.path.length
+                                        )}
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                    `;
+
+
+                    /* ARROW */
+
+                    if (
+                        index <
+                        data.path.length - 1
+                    ) {
+
+                        html += `
+
+                            <div
+                                class="path-arrow"
+                                style="
+                                    animation-delay:
+                                    ${index * 0.35 + 0.20}s;
+                                "
+                            >
+
+                                ↓
+
+                            </div>
+
+                        `;
+
+                    }
+
+
+                    html += `
+
+                        </div>
+
+                    `;
+
+                }
+            );
+
+
+            html += `
+
+                </div>
+
+
+                <!-- PATH STATISTICS -->
+
+                <div class="path-summary">
+
+
+                    <div class="stat">
+
+                        <strong>
+
+                            ${data.path.length}
+
+                        </strong>
+
+                        <span>
+
+                            Total Steps
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <strong>
+
+                            ${data.path.length - 1}
+
+                        </strong>
+
+                        <span>
+
+                            Connections
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <strong>
+
+                            🎯
+
+                        </strong>
+
+                        <span>
+
+                            Career Goal
+
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- WHY THIS PATH -->
+
+                <div class="why-path">
+
+
+                    <div class="why-title">
+
+                        💡 Why this path?
+
+                    </div>
+
+
+            `;
+
+
+            /* DYNAMIC EXPLANATIONS */
+
+            data.path.forEach(
+                (step, index) => {
+
+
+                    html += `
+
+                        <div class="reason">
+
+                            <div class="reason-icon">
+
+                                ${getIcon(step)}
+
+                            </div>
+
+
+                            <div class="reason-text">
+
+                                <strong>
+
+                                    ${step}
+
+                                </strong>
+
+
+                                <span>
+
+                                    ${getReason(
+                                        step,
+                                        index,
+                                        data.path
+                                    )}
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                }
+            );
+
+
+            html += `
+
+                </div>
+
+
+                <!-- SUCCESS -->
+
+                <div class="success">
+
+                    🎉 You're on the right path!
+
+                    <div class="progress">
+
+                        <div
+                            class="progress-bar"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            resultDiv.innerHTML =
+                html;
+
+
+        }
+
+
+        /* =========================
+           NO PATH
+        ========================== */
+
+        else {
+
+
+            resultDiv.innerHTML = `
+
+                <div class="no-path">
+
+                    <div class="no-path-icon">
+
+                        🔍
+
+                    </div>
+
+
+                    <h3>
+
+                        No Learning Path Found
+
+                    </h3>
+
+
+                    <p>
+
+                        There is currently no connected
+                        learning path between
+                        <strong>${skill}</strong>
+                        and
+                        <strong>${career}</strong>.
+
+                        <br><br>
+
+                        Try another skill or target career.
+
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+
+
+    }
+
+
+    /* =========================
+       SERVER ERROR
+    ========================== */
+
+    catch (error) {
+
+
+        console.error(error);
+
+
+        resultDiv.innerHTML = `
+
+            <div class="no-path">
+
+                <div class="no-path-icon">
+
+                    ⚠️
+
+                </div>
+
+
+                <h3>
+
+                    Unable to Connect
+
+                </h3>
+
+
+                <p>
+
+                    The Flask backend could not be reached.
+
+                    <br>
+
+                    Make sure
+                    <strong>python app.py</strong>
+                    is running.
+
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+
+    /* RESTORE BUTTON */
+
+    button.disabled = false;
+
+    button.innerHTML =
+        "🚀 Find My Learning Path";
+
+}
+
+
+
+/* =========================
+   STEP LABEL
+========================= */
+
+function getStepLabel(
+    step,
+    index,
+    total
+) {
+
+
+    if (index === 0) {
+
+        return "Starting Skill";
+
+    }
+
+
+    if (index === total - 1) {
+
+        return "Target Career";
+
+    }
+
+
+    return "Required Skill";
+
+}
+
+
+
+/* =========================
+   PATH EXPLANATIONS
+========================= */
+
+function getReason(
+    step,
+    index,
+    path
+) {
+
+
+    const reasons = {
+
+
+        "Python Basics":
+
+            "Provides the programming foundation required for data analysis, machine learning and backend development.",
+
+
+        "Data Structures":
+
+            "Builds algorithmic thinking and helps you work efficiently with data and machine-learning algorithms.",
+
+
+        "SQL":
+
+            "Develops the ability to query, filter and analyze structured data stored in databases.",
+
+
+        "Machine Learning":
+
+            "Provides the core knowledge needed to build predictive models and intelligent systems.",
+
+
+        "Flask":
+
+            "Provides a lightweight Python framework for building web applications and backend APIs.",
+
+
+        "Data Analyst":
+
+            "Your selected career goal. This path connects the required technical skills to data-driven analysis.",
+
+
+        "ML Engineer":
+
+            "Your selected career goal. This path connects programming and machine-learning foundations to ML engineering.",
+
+
+        "Backend Developer":
+
+            "Your selected career goal. This path connects backend technologies and programming skills to server-side development."
+
+    };
+
+
+    if (reasons[step]) {
+
+        return reasons[step];
+
+    }
+
+
+    if (index === 0) {
+
+        return "This is your current starting point in the learning journey.";
+
+    }
+
+
+    if (index === path.length - 1) {
+
+        return "This is your selected target career.";
+
+    }
+
+
+    return "This skill is an important prerequisite on the route to your target career.";
+
+}
+
+
+
+/* =========================
+   ICONS
+========================= */
+
+function getIcon(step) {
+
+
+    const icons = {
+
+
+        "Python Basics":
+            "🐍",
+
+
+        "Data Structures":
+            "🧩",
+
+
+        "SQL":
+            "🗄️",
+
+
+        "Machine Learning":
+            "🤖",
+
+
+        "Flask":
+            "🌐",
+
+
+        "Data Analyst":
+            "📊",
+
+
+        "ML Engineer":
+            "🧠",
+
+
+        "Backend Developer":
+            "⚙️"
+
+    };
+
+
+    return icons[step] || "⭐";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
