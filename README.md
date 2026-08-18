@@ -611,6 +611,34 @@ to create an interactive career learning path advisor.
 ✅ Render Deployment Completed
 ✅ Live Demo Available
 ```
+## 🧩 Data Model
+
+SkillPath AI represents skills and careers as nodes in a graph database.
+
+### Graph Structure
+
+```mermaid
+graph LR
+
+    S1[Python Basics]
+    S2[Data Structures]
+    S3[SQL]
+    S4[Machine Learning]
+    S5[Flask]
+
+    C1[Data Analyst]
+    C2[ML Engineer]
+    C3[Backend Developer]
+
+    S1 -->|PREREQUISITE_OF| S2
+    S1 -->|PREREQUISITE_OF| S3
+    S1 -->|PREREQUISITE_OF| S5
+    S2 -->|PREREQUISITE_OF| S4
+
+    S3 -->|REQUIRED_FOR| C1
+    S4 -->|REQUIRED_FOR| C2
+    S5 -->|REQUIRED_FOR| C3
+
 ## 📸 Application Screenshots
 
 ### 🏠 Home Page
@@ -624,5 +652,6 @@ to create an interactive career learning path advisor.
 ### 📊 Data Analyst Learning Path
 
 ![Data Analyst Path](screenshots/data-analyst-path.png)
+
 
 ---
