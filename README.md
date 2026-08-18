@@ -611,5 +611,18 @@ to create an interactive career learning path advisor.
 ✅ Render Deployment Completed
 ✅ Live Demo Available
 ```
+## 📸 Application Screenshots
+
+### 🏠 Home Page
+
+![SkillPath AI Home](screenshots/home.png)
+
+### 🤖 ML Engineer Learning Path
+
+![ML Engineer Path](screenshots/ml-path.png)
+
+### 📊 Data Analyst Learning Path
+
+![Data Analyst Path](screenshots/data-analyst-path.png)
 
 ---
