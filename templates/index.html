@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -17,9 +16,7 @@
         }
 
         body {
-
             font-family: Arial, Helvetica, sans-serif;
-
             min-height: 100vh;
 
             background:
@@ -28,13 +25,11 @@
                     rgba(99, 102, 241, 0.28),
                     transparent 30%
                 ),
-
                 radial-gradient(
                     circle at 90% 80%,
                     rgba(168, 85, 247, 0.28),
                     transparent 30%
                 ),
-
                 linear-gradient(
                     135deg,
                     #0f172a,
@@ -44,9 +39,7 @@
             color: white;
 
             display: flex;
-
             justify-content: center;
-
             align-items: center;
 
             padding: 40px 20px;
@@ -60,9 +53,7 @@
         ========================== */
 
         .container {
-
             width: 100%;
-
             max-width: 950px;
         }
 
@@ -72,17 +63,13 @@
         ========================== */
 
         .header {
-
             text-align: center;
-
             margin-bottom: 35px;
-
             animation: fadeDown 0.8s ease;
         }
 
 
         .badge {
-
             display: inline-block;
 
             padding: 9px 18px;
@@ -107,9 +94,7 @@
 
 
         .header h1 {
-
             font-size: 50px;
-
             margin-bottom: 12px;
 
             background:
@@ -120,8 +105,9 @@
                     #c084fc
                 );
 
+            /* Fixed CSS */
+            background-clip: text;
             -webkit-background-clip: text;
-
             -webkit-text-fill-color: transparent;
 
             letter-spacing: -1px;
@@ -129,11 +115,8 @@
 
 
         .header p {
-
             color: #cbd5e1;
-
             font-size: 17px;
-
             line-height: 1.6;
         }
 
@@ -143,7 +126,6 @@
         ========================== */
 
         .card {
-
             background:
                 rgba(255,255,255,0.08);
 
@@ -168,7 +150,6 @@
         ========================== */
 
         .form-grid {
-
             display: grid;
 
             grid-template-columns:
@@ -179,7 +160,6 @@
 
 
         .field label {
-
             display: block;
 
             font-size: 14px;
@@ -193,7 +173,6 @@
 
 
         select {
-
             width: 100%;
 
             padding: 16px;
@@ -220,7 +199,6 @@
 
         select:hover,
         select:focus {
-
             border-color: #818cf8;
 
             box-shadow:
@@ -234,7 +212,6 @@
         ========================== */
 
         button {
-
             width: 100%;
 
             margin-top: 30px;
@@ -273,17 +250,14 @@
 
 
         button::before {
-
             content: "";
 
             position: absolute;
 
             top: 0;
-
             left: -100%;
 
             width: 100%;
-
             height: 100%;
 
             background:
@@ -299,13 +273,11 @@
 
 
         button:hover::before {
-
             left: 100%;
         }
 
 
         button:hover {
-
             transform:
                 translateY(-2px);
 
@@ -316,9 +288,14 @@
 
 
         button:active {
-
             transform:
                 scale(0.98);
+        }
+
+
+        button:disabled {
+            opacity: 0.75;
+            cursor: wait;
         }
 
 
@@ -327,7 +304,6 @@
         ========================== */
 
         .result {
-
             margin-top: 35px;
 
             min-height: 150px;
@@ -348,7 +324,6 @@
 
 
         .result-title {
-
             color: #94a3b8;
 
             font-size: 13px;
@@ -368,7 +343,6 @@
         ========================== */
 
         .career-path {
-
             display: flex;
 
             flex-direction: column;
@@ -383,7 +357,6 @@
 
 
         .path-item {
-
             display: flex;
 
             flex-direction: column;
@@ -393,7 +366,6 @@
 
 
         .step {
-
             min-width: 280px;
 
             display: flex;
@@ -435,7 +407,6 @@
 
 
         .step:hover {
-
             transform:
                 translateY(-5px)
                 scale(1.04);
@@ -447,9 +418,7 @@
 
 
         .step-icon {
-
             width: 46px;
-
             height: 46px;
 
             display: flex;
@@ -470,15 +439,12 @@
 
 
         .step-name {
-
             font-size: 16px;
-
             font-weight: 700;
         }
 
 
         .step-number {
-
             margin-top: 4px;
 
             font-size: 11px;
@@ -492,7 +458,6 @@
 
 
         .path-arrow {
-
             font-size: 28px;
 
             color: #a5b4fc;
@@ -513,7 +478,6 @@
         ========================== */
 
         .path-summary {
-
             display: grid;
 
             grid-template-columns:
@@ -526,7 +490,6 @@
 
 
         .stat {
-
             padding: 16px 10px;
 
             text-align: center;
@@ -545,7 +508,6 @@
 
 
         .stat:hover {
-
             background:
                 rgba(255,255,255,0.09);
 
@@ -555,7 +517,6 @@
 
 
         .stat strong {
-
             display: block;
 
             font-size: 23px;
@@ -565,7 +526,6 @@
 
 
         .stat span {
-
             display: block;
 
             margin-top: 5px;
@@ -581,7 +541,6 @@
         ========================== */
 
         .why-path {
-
             margin-top: 25px;
 
             padding: 22px;
@@ -601,7 +560,6 @@
 
 
         .why-title {
-
             font-size: 17px;
 
             font-weight: 700;
@@ -613,7 +571,6 @@
 
 
         .reason {
-
             display: flex;
 
             gap: 14px;
@@ -627,15 +584,12 @@
 
 
         .reason:last-child {
-
             border-bottom: none;
         }
 
 
         .reason-icon {
-
             width: 38px;
-
             height: 38px;
 
             display: flex;
@@ -656,7 +610,6 @@
 
 
         .reason-text strong {
-
             display: block;
 
             color: white;
@@ -668,13 +621,11 @@
 
 
         .reason-text span {
-
             color: #94a3b8;
 
             font-size: 13px;
 
             line-height: 1.6;
-
         }
 
 
@@ -683,7 +634,6 @@
         ========================== */
 
         .success {
-
             text-align: center;
 
             color: #cbd5e1;
@@ -696,7 +646,6 @@
 
 
         .progress {
-
             height: 8px;
 
             background:
@@ -711,7 +660,6 @@
 
 
         .progress-bar {
-
             height: 100%;
 
             width: 0;
@@ -735,7 +683,6 @@
         ========================== */
 
         .loading {
-
             text-align: center;
 
             color: #cbd5e1;
@@ -745,9 +692,7 @@
 
 
         .spinner {
-
             width: 38px;
-
             height: 38px;
 
             margin:
@@ -772,7 +717,6 @@
         ========================== */
 
         .no-path {
-
             text-align: center;
 
             padding: 30px 15px;
@@ -785,7 +729,6 @@
 
 
         .no-path-icon {
-
             font-size: 40px;
 
             margin-bottom: 12px;
@@ -793,7 +736,6 @@
 
 
         .no-path h3 {
-
             margin-bottom: 8px;
 
             color: white;
@@ -801,7 +743,6 @@
 
 
         .no-path p {
-
             color: #94a3b8;
 
             font-size: 14px;
@@ -815,7 +756,6 @@
         ========================== */
 
         .footer {
-
             text-align: center;
 
             margin-top: 25px;
@@ -831,9 +771,7 @@
         ========================== */
 
         @keyframes fadeDown {
-
             from {
-
                 opacity: 0;
 
                 transform:
@@ -841,7 +779,6 @@
             }
 
             to {
-
                 opacity: 1;
 
                 transform:
@@ -851,9 +788,7 @@
 
 
         @keyframes fadeUp {
-
             from {
-
                 opacity: 0;
 
                 transform:
@@ -861,7 +796,6 @@
             }
 
             to {
-
                 opacity: 1;
 
                 transform:
@@ -871,9 +805,7 @@
 
 
         @keyframes nodeIn {
-
             to {
-
                 opacity: 1;
 
                 transform:
@@ -884,18 +816,14 @@
 
 
         @keyframes arrowIn {
-
             to {
-
                 opacity: 1;
             }
         }
 
 
         @keyframes spin {
-
             to {
-
                 transform:
                     rotate(360deg);
             }
@@ -903,9 +831,7 @@
 
 
         @keyframes progress {
-
             to {
-
                 width: 85%;
             }
         }
@@ -918,26 +844,22 @@
         @media(max-width: 700px) {
 
             body {
-
                 padding:
                     25px 12px;
             }
 
 
             .header h1 {
-
                 font-size: 36px;
             }
 
 
             .header p {
-
                 font-size: 15px;
             }
 
 
             .card {
-
                 padding: 22px;
 
                 border-radius: 20px;
@@ -945,27 +867,23 @@
 
 
             .form-grid {
-
                 grid-template-columns:
                     1fr;
             }
 
 
             .step {
-
                 min-width: 230px;
             }
 
 
             .path-summary {
-
                 grid-template-columns:
                     1fr;
             }
 
 
             .result {
-
                 padding: 18px;
             }
         }
@@ -977,800 +895,635 @@
 
 <body>
 
+    <div class="container">
 
-<div class="container">
+        <!-- =========================
+             HEADER
+        ========================== -->
 
+        <div class="header">
 
-    <!-- =========================
-         HEADER
-    ========================== -->
+            <div class="badge">
+                ✨ AI-Powered Career Navigation
+            </div>
 
-    <div class="header">
+            <h1>
+                SkillPath AI
+            </h1>
 
-        <div class="badge">
-
-            ✨ AI-Powered Career Navigation
+            <p>
+                Discover the skills you need to reach your dream career.
+            </p>
 
         </div>
 
 
-        <h1>
+        <!-- =========================
+             MAIN CARD
+        ========================== -->
 
-            SkillPath AI
+        <div class="card">
 
-        </h1>
+            <!-- FORM -->
 
+            <div class="form-grid">
 
-        <p>
+                <!-- STARTING SKILL -->
 
-            Discover the skills you need to reach your dream career.
+                <div class="field">
 
-        </p>
+                    <label for="skill">
+                        🧠 Starting Skill
+                    </label>
 
-    </div>
+                    <select id="skill">
 
+                        <option value="Python Basics">
+                            Python Basics
+                        </option>
 
-    <!-- =========================
-         MAIN CARD
-    ========================== -->
+                        <option value="Data Structures">
+                            Data Structures
+                        </option>
 
-    <div class="card">
+                        <option value="SQL">
+                            SQL
+                        </option>
 
-
-        <!-- FORM -->
-
-        <div class="form-grid">
-
-
-            <!-- STARTING SKILL -->
-
-            <div class="field">
-
-                <label for="skill">
-
-                    🧠 Starting Skill
-
-                </label>
-
-
-                <select id="skill">
-
-                    <option value="Python Basics">
-
-                        Python Basics
-
-                    </option>
-
-
-                    <option value="Data Structures">
-
-                        Data Structures
-
-                    </option>
-
-
-                    <option value="SQL">
-
-                        SQL
-
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <!-- TARGET CAREER -->
-
-            <div class="field">
-
-                <label for="career">
-
-                    🎯 Target Career
-
-                </label>
-
-
-                <select id="career">
-
-                    <option value="Data Analyst">
-
-                        Data Analyst
-
-                    </option>
-
-
-                    <option value="ML Engineer">
-
-                        ML Engineer
-
-                    </option>
-
-
-                    <option value="Backend Developer">
-
-                        Backend Developer
-
-                    </option>
-
-                </select>
-
-            </div>
-
-        </div>
-
-
-        <!-- BUTTON -->
-
-        <button
-            id="findButton"
-            onclick="findPath()"
-        >
-
-            🚀 Find My Learning Path
-
-        </button>
-
-
-        <!-- RESULT -->
-
-        <div
-            class="result"
-            id="result"
-        >
-
-            <div class="result-title">
-
-                Your Career Journey
-
-            </div>
-
-
-            <div
-                style="
-                    text-align:center;
-                    color:#94a3b8;
-                "
-            >
-
-                Select your starting skill and target career
-                to generate your personalized path.
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-
-    <!-- FOOTER -->
-
-    <div class="footer">
-
-        Powered by Graph-Based Career Intelligence
-
-    </div>
-
-
-</div>
-
-
-<script>
-
-
-/* =========================
-   FIND LEARNING PATH
-========================= */
-
-async function findPath() {
-
-
-    const skill =
-        document.getElementById("skill").value;
-
-
-    const career =
-        document.getElementById("career").value;
-
-
-    const resultDiv =
-        document.getElementById("result");
-
-
-    const button =
-        document.getElementById("findButton");
-
-
-    /* BUTTON LOADING STATE */
-
-    button.disabled = true;
-
-    button.innerHTML =
-        "🔎 Finding Your Best Path...";
-
-
-    /* LOADING UI */
-
-    resultDiv.innerHTML = `
-
-        <div class="loading">
-
-            <div class="spinner"></div>
-
-            Finding the best learning path...
-
-            <br>
-
-            <small
-                style="
-                    color:#64748b;
-                    display:block;
-                    margin-top:8px;
-                "
-            >
-
-                Analyzing the graph connections...
-
-            </small>
-
-        </div>
-
-    `;
-
-
-    try {
-
-
-        /* CALL FLASK BACKEND */
-
-        const response = await fetch(
-
-            `/path/${encodeURIComponent(skill)}/${encodeURIComponent(career)}`
-
-        );
-
-
-        const data =
-            await response.json();
-
-
-        /* =========================
-           PATH FOUND
-        ========================== */
-
-        if (data.path && data.path.length > 0) {
-
-
-            let html = `
-
-                <div class="result-title">
-
-                    🚀 Your Learning Journey
+                    </select>
 
                 </div>
 
 
-                <div class="career-path">
+                <!-- TARGET CAREER -->
+
+                <div class="field">
+
+                    <label for="career">
+                        🎯 Target Career
+                    </label>
+
+                    <select id="career">
+
+                        <option value="Data Analyst">
+                            Data Analyst
+                        </option>
+
+                        <option value="ML Engineer">
+                            ML Engineer
+                        </option>
+
+                        <option value="Backend Developer">
+                            Backend Developer
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- BUTTON -->
+
+            <button
+                id="findButton"
+                onclick="findPath()"
+            >
+                🚀 Find My Learning Path
+            </button>
+
+
+            <!-- RESULT -->
+
+            <div
+                class="result"
+                id="result"
+            >
+
+                <div class="result-title">
+                    Your Career Journey
+                </div>
+
+                <div
+                    style="
+                        text-align:center;
+                        color:#94a3b8;
+                    "
+                >
+                    Select your starting skill and target career
+                    to generate your personalized path.
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <div class="footer">
+            Powered by Graph-Based Career Intelligence
+        </div>
+
+    </div>
+
+
+    <script>
+
+        /* =========================
+           FIND LEARNING PATH
+        ========================== */
+
+        async function findPath() {
+
+            const skill =
+                document.getElementById("skill").value;
+
+            const career =
+                document.getElementById("career").value;
+
+            const resultDiv =
+                document.getElementById("result");
+
+            const button =
+                document.getElementById("findButton");
+
+
+            /* BUTTON LOADING STATE */
+
+            button.disabled = true;
+
+            button.innerHTML =
+                "🔎 Finding Your Best Path...";
+
+
+            /* LOADING UI */
+
+            resultDiv.innerHTML = `
+
+                <div class="loading">
+
+                    <div class="spinner"></div>
+
+                    Finding the best learning path...
+
+                    <br>
+
+                    <small
+                        style="
+                            color:#64748b;
+                            display:block;
+                            margin-top:8px;
+                        "
+                    >
+                        Analyzing the graph connections...
+                    </small>
+
+                </div>
 
             `;
 
 
-            /* CREATE PATH NODES */
+            try {
 
-            data.path.forEach(
-                (step, index) => {
+                /* CALL FLASK BACKEND */
 
-
-                    html += `
-
-                        <div class="path-item">
-
-                            <div
-                                class="step"
-                                style="
-                                    animation-delay:
-                                    ${index * 0.35}s;
-                                "
-                            >
-
-                                <div class="step-icon">
-
-                                    ${getIcon(step)}
-
-                                </div>
+                const response = await fetch(
+                    `/path/${encodeURIComponent(skill)}/${encodeURIComponent(career)}`
+                );
 
 
-                                <div>
-
-                                    <div class="step-name">
-
-                                        ${step}
-
-                                    </div>
+                const data =
+                    await response.json();
 
 
-                                    <div class="step-number">
+                /* =========================
+                   PATH FOUND
+                ========================== */
 
-                                        ${getStepLabel(
-                                            step,
-                                            index,
-                                            data.path.length
-                                        )}
+                if (data.path && data.path.length > 0) {
 
-                                    </div>
+                    let html = `
 
-                                </div>
+                        <div class="result-title">
+                            🚀 Your Learning Journey
+                        </div>
 
-                            </div>
+                        <div class="career-path">
 
                     `;
 
 
-                    /* ARROW */
+                    /* CREATE PATH NODES */
 
-                    if (
-                        index <
-                        data.path.length - 1
-                    ) {
+                    data.path.forEach(
+                        (step, index) => {
 
-                        html += `
+                            html += `
 
-                            <div
-                                class="path-arrow"
-                                style="
-                                    animation-delay:
-                                    ${index * 0.35 + 0.20}s;
-                                "
-                            >
+                                <div class="path-item">
 
-                                ↓
+                                    <div
+                                        class="step"
+                                        style="
+                                            animation-delay:
+                                            ${index * 0.35}s;
+                                        "
+                                    >
 
-                            </div>
+                                        <div class="step-icon">
+                                            ${getIcon(step)}
+                                        </div>
 
-                        `;
+                                        <div>
 
-                    }
+                                            <div class="step-name">
+                                                ${step}
+                                            </div>
+
+                                            <div class="step-number">
+                                                ${getStepLabel(
+                                                    step,
+                                                    index,
+                                                    data.path.length
+                                                )}
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                            `;
+
+
+                            /* ARROW */
+
+                            if (
+                                index <
+                                data.path.length - 1
+                            ) {
+
+                                html += `
+
+                                    <div
+                                        class="path-arrow"
+                                        style="
+                                            animation-delay:
+                                            ${index * 0.35 + 0.20}s;
+                                        "
+                                    >
+                                        ↓
+                                    </div>
+
+                                `;
+
+                            }
+
+
+                            html += `
+
+                                </div>
+
+                            `;
+
+                        }
+                    );
 
 
                     html += `
 
                         </div>
 
-                    `;
+                        <!-- PATH STATISTICS -->
 
-                }
-            );
+                        <div class="path-summary">
 
+                            <div class="stat">
 
-            html += `
+                                <strong>
+                                    ${data.path.length}
+                                </strong>
 
-                </div>
-
-
-                <!-- PATH STATISTICS -->
-
-                <div class="path-summary">
-
-
-                    <div class="stat">
-
-                        <strong>
-
-                            ${data.path.length}
-
-                        </strong>
-
-                        <span>
-
-                            Total Steps
-
-                        </span>
-
-                    </div>
-
-
-                    <div class="stat">
-
-                        <strong>
-
-                            ${data.path.length - 1}
-
-                        </strong>
-
-                        <span>
-
-                            Connections
-
-                        </span>
-
-                    </div>
-
-
-                    <div class="stat">
-
-                        <strong>
-
-                            🎯
-
-                        </strong>
-
-                        <span>
-
-                            Career Goal
-
-                        </span>
-
-                    </div>
-
-
-                </div>
-
-
-                <!-- WHY THIS PATH -->
-
-                <div class="why-path">
-
-
-                    <div class="why-title">
-
-                        💡 Why this path?
-
-                    </div>
-
-
-            `;
-
-
-            /* DYNAMIC EXPLANATIONS */
-
-            data.path.forEach(
-                (step, index) => {
-
-
-                    html += `
-
-                        <div class="reason">
-
-                            <div class="reason-icon">
-
-                                ${getIcon(step)}
+                                <span>
+                                    Total Steps
+                                </span>
 
                             </div>
 
 
-                            <div class="reason-text">
+                            <div class="stat">
 
                                 <strong>
-
-                                    ${step}
-
+                                    ${data.path.length - 1}
                                 </strong>
 
+                                <span>
+                                    Connections
+                                </span>
+
+                            </div>
+
+
+                            <div class="stat">
+
+                                <strong>
+                                    🎯
+                                </strong>
 
                                 <span>
-
-                                    ${getReason(
-                                        step,
-                                        index,
-                                        data.path
-                                    )}
-
+                                    Career Goal
                                 </span>
 
                             </div>
 
                         </div>
 
+
+                        <!-- WHY THIS PATH -->
+
+                        <div class="why-path">
+
+                            <div class="why-title">
+                                💡 Why this path?
+                            </div>
+
+                    `;
+
+
+                    /* DYNAMIC EXPLANATIONS */
+
+                    data.path.forEach(
+                        (step, index) => {
+
+                            html += `
+
+                                <div class="reason">
+
+                                    <div class="reason-icon">
+                                        ${getIcon(step)}
+                                    </div>
+
+                                    <div class="reason-text">
+
+                                        <strong>
+                                            ${step}
+                                        </strong>
+
+                                        <span>
+                                            ${getReason(
+                                                step,
+                                                index,
+                                                data.path
+                                            )}
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            `;
+
+                        }
+                    );
+
+
+                    html += `
+
+                        </div>
+
+                        <!-- SUCCESS -->
+
+                        <div class="success">
+
+                            🎉 You're on the right path!
+
+                            <div class="progress">
+
+                                <div
+                                    class="progress-bar"
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+
+                    resultDiv.innerHTML =
+                        html;
+
+                }
+
+
+                /* =========================
+                   NO PATH
+                ========================== */
+
+                else {
+
+                    resultDiv.innerHTML = `
+
+                        <div class="no-path">
+
+                            <div class="no-path-icon">
+                                🔍
+                            </div>
+
+                            <h3>
+                                No Learning Path Found
+                            </h3>
+
+                            <p>
+                                There is currently no connected
+                                learning path between
+                                <strong>${skill}</strong>
+                                and
+                                <strong>${career}</strong>.
+
+                                <br><br>
+
+                                Try another skill or target career.
+                            </p>
+
+                        </div>
+
                     `;
 
                 }
-            );
 
 
-            html += `
+            }
 
-                </div>
+            /* =========================
+               SERVER ERROR
+            ========================== */
 
+            catch (error) {
 
-                <!-- SUCCESS -->
+                console.error(error);
 
-                <div class="success">
+                resultDiv.innerHTML = `
 
-                    🎉 You're on the right path!
+                    <div class="no-path">
 
-                    <div class="progress">
+                        <div class="no-path-icon">
+                            ⚠️
+                        </div>
 
-                        <div
-                            class="progress-bar"
-                        ></div>
+                        <h3>
+                            Unable to Connect
+                        </h3>
+
+                        <p>
+                            The Flask backend could not be reached.
+
+                            <br>
+
+                            Make sure
+                            <strong>python app.py</strong>
+                            is running.
+                        </p>
 
                     </div>
 
-                </div>
+                `;
 
-            `;
+            }
 
 
-            resultDiv.innerHTML =
-                html;
+            /* RESTORE BUTTON */
 
+            button.disabled = false;
+
+            button.innerHTML =
+                "🚀 Find My Learning Path";
 
         }
 
 
         /* =========================
-           NO PATH
+           STEP LABEL
         ========================== */
 
-        else {
+        function getStepLabel(
+            step,
+            index,
+            total
+        ) {
+
+            if (index === 0) {
+                return "Starting Skill";
+            }
+
+            if (index === total - 1) {
+                return "Target Career";
+            }
+
+            return "Required Skill";
+        }
 
 
-            resultDiv.innerHTML = `
+        /* =========================
+           PATH EXPLANATIONS
+        ========================== */
 
-                <div class="no-path">
+        function getReason(
+            step,
+            index,
+            path
+        ) {
 
-                    <div class="no-path-icon">
+            const reasons = {
 
-                        🔍
+                "Python Basics":
+                    "Provides the programming foundation required for data analysis, machine learning and backend development.",
 
-                    </div>
+                "Data Structures":
+                    "Builds algorithmic thinking and helps you work efficiently with data and machine-learning algorithms.",
+
+                "SQL":
+                    "Develops the ability to query, filter and analyze structured data stored in databases.",
+
+                "Machine Learning":
+                    "Provides the core knowledge needed to build predictive models and intelligent systems.",
+
+                "Flask":
+                    "Provides a lightweight Python framework for building web applications and backend APIs.",
+
+                "Data Analyst":
+                    "Your selected career goal. This path connects the required technical skills to data-driven analysis.",
+
+                "ML Engineer":
+                    "Your selected career goal. This path connects programming and machine-learning foundations to ML engineering.",
+
+                "Backend Developer":
+                    "Your selected career goal. This path connects backend technologies and programming skills to server-side development."
+
+            };
 
 
-                    <h3>
-
-                        No Learning Path Found
-
-                    </h3>
+            if (reasons[step]) {
+                return reasons[step];
+            }
 
 
-                    <p>
+            if (index === 0) {
+                return "This is your current starting point in the learning journey.";
+            }
 
-                        There is currently no connected
-                        learning path between
-                        <strong>${skill}</strong>
-                        and
-                        <strong>${career}</strong>.
 
-                        <br><br>
+            if (index === path.length - 1) {
+                return "This is your selected target career.";
+            }
 
-                        Try another skill or target career.
 
-                    </p>
-
-                </div>
-
-            `;
+            return "This skill is an important prerequisite on the route to your target career.";
 
         }
 
 
-    }
+        /* =========================
+           ICONS
+        ========================== */
 
+        function getIcon(step) {
 
-    /* =========================
-       SERVER ERROR
-    ========================== */
+            const icons = {
 
-    catch (error) {
+                "Python Basics":
+                    "🐍",
 
+                "Data Structures":
+                    "🧩",
 
-        console.error(error);
+                "SQL":
+                    "🗄️",
 
+                "Machine Learning":
+                    "🤖",
 
-        resultDiv.innerHTML = `
+                "Flask":
+                    "🌐",
 
-            <div class="no-path">
+                "Data Analyst":
+                    "📊",
 
-                <div class="no-path-icon">
+                "ML Engineer":
+                    "🧠",
 
-                    ⚠️
+                "Backend Developer":
+                    "⚙️"
 
-                </div>
+            };
 
 
-                <h3>
+            return icons[step] || "⭐";
 
-                    Unable to Connect
+        }
 
-                </h3>
-
-
-                <p>
-
-                    The Flask backend could not be reached.
-
-                    <br>
-
-                    Make sure
-                    <strong>python app.py</strong>
-                    is running.
-
-                </p>
-
-            </div>
-
-        `;
-
-    }
-
-
-    /* RESTORE BUTTON */
-
-    button.disabled = false;
-
-    button.innerHTML =
-        "🚀 Find My Learning Path";
-
-}
-
-
-
-/* =========================
-   STEP LABEL
-========================= */
-
-function getStepLabel(
-    step,
-    index,
-    total
-) {
-
-
-    if (index === 0) {
-
-        return "Starting Skill";
-
-    }
-
-
-    if (index === total - 1) {
-
-        return "Target Career";
-
-    }
-
-
-    return "Required Skill";
-
-}
-
-
-
-/* =========================
-   PATH EXPLANATIONS
-========================= */
-
-function getReason(
-    step,
-    index,
-    path
-) {
-
-
-    const reasons = {
-
-
-        "Python Basics":
-
-            "Provides the programming foundation required for data analysis, machine learning and backend development.",
-
-
-        "Data Structures":
-
-            "Builds algorithmic thinking and helps you work efficiently with data and machine-learning algorithms.",
-
-
-        "SQL":
-
-            "Develops the ability to query, filter and analyze structured data stored in databases.",
-
-
-        "Machine Learning":
-
-            "Provides the core knowledge needed to build predictive models and intelligent systems.",
-
-
-        "Flask":
-
-            "Provides a lightweight Python framework for building web applications and backend APIs.",
-
-
-        "Data Analyst":
-
-            "Your selected career goal. This path connects the required technical skills to data-driven analysis.",
-
-
-        "ML Engineer":
-
-            "Your selected career goal. This path connects programming and machine-learning foundations to ML engineering.",
-
-
-        "Backend Developer":
-
-            "Your selected career goal. This path connects backend technologies and programming skills to server-side development."
-
-    };
-
-
-    if (reasons[step]) {
-
-        return reasons[step];
-
-    }
-
-
-    if (index === 0) {
-
-        return "This is your current starting point in the learning journey.";
-
-    }
-
-
-    if (index === path.length - 1) {
-
-        return "This is your selected target career.";
-
-    }
-
-
-    return "This skill is an important prerequisite on the route to your target career.";
-
-}
-
-
-
-/* =========================
-   ICONS
-========================= */
-
-function getIcon(step) {
-
-
-    const icons = {
-
-
-        "Python Basics":
-            "🐍",
-
-
-        "Data Structures":
-            "🧩",
-
-
-        "SQL":
-            "🗄️",
-
-
-        "Machine Learning":
-            "🤖",
-
-
-        "Flask":
-            "🌐",
-
-
-        "Data Analyst":
-            "📊",
-
-
-        "ML Engineer":
-            "🧠",
-
-
-        "Backend Developer":
-            "⚙️"
-
-    };
-
-
-    return icons[step] || "⭐";
-
-}
-
-
-</script>
-
+    </script>
 
 </body>
 
